@@ -1,8 +1,0 @@
-//Static block will be executed when class is loaded or static variable or static method
-// is called
-// static block will be executed only once
-// is static block non static variable can be initialized
-// static block is used to initialize static variable and load static method
-//non static will be executed when object created
-//non static block will be executed many times based on number of objects created
-// non static block can be initialize static variable

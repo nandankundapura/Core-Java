@@ -1,30 +1,20 @@
-class Person{
-    private String name;
-    private int age;
-    private String gender;
+package com.Xworkz.inheritance;
 
- public void setName(String personName) 
-{
-     name=personName;
+public class Person {
+    Person() {
+        System.out.println("Person constructor called");
+    }
 }
-   public void setAge(int personAge)
- {
-       age=personAge;
-  }
-    public void setGender(String personGender) 
-{
-        gender=personGender;
+
+class Student extends Person {
+    Student() {
+        super();
+        System.out.println("Student constructor called");
+    }
 }
-public String getName() 
-{
-        return name;
-}
-public int getAge()
-{
-	return age;
- }
- public String getGender()
- {
-        return gender;
+
+public class SingleLevelExample {
+    public static void main(String[] args) {
+        Student s = new Student();
     }
 }

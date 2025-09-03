@@ -1,22 +1,33 @@
-class Calculator{
-	public static void main(String[] args){
-	 int a=20;
-	int b=10;
-	char operator = '+';
-if (operator=='+'){
-System.out.println("Addition is " + (a+b));
+package com.Xworkz.inheritance;
+
+public class Calculator {
+    public int add(int a, int b) { return a + b; }
+    public int subtract(int a, int b) { return a - b; }
+    public int multiply(int a, int b) { return a * b; }
+    public double divide(int a, int b) {
+        if (b == 0) {
+            System.out.println("Error: Division by zero!");
+            return 0;
+        }
+        return (double)a / b;
+    }
 }
-else if (operator=='-') {
-System.out.println("Subrtaction is " + (a-b));
-}
-else if (operator=='*'){
-System.out.println("Multiplication is " + (a*b));
-}
-else if (operator=='/') {
-System.out.println("Division is " + (a/b));
-}
-else {
-System.out.println("Invalid operator");
-}
-}
+
+public class CalculatorArgsDemo {
+    public static void main(String[] args) {
+        if (args.length < 2) {
+            System.out.println("Please provide two numbers as command-line arguments.");
+            return;
+        }
+
+        int num1 = Integer.valueOf(args[0]);
+        int num2 = Integer.valueOf(args[1]);
+
+        Calculator calc = new Calculator();
+
+        System.out.println("Addition: " + calc.add(num1, num2));
+        System.out.println("Subtraction: " + calc.subtract(num1, num2));
+        System.out.println("Multiplication: " + calc.multiply(num1, num2));
+        System.out.println("Division: " + calc.divide(num1, num2));
+    }
 }

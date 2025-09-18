@@ -1,53 +1,24 @@
-package com.Xworkz.inheritance;
+package StringPrograms;
 
 public class Vehicle {
-    public void run() {
-        System.out.println("Vehicle is running");
-    }
+    abstract void start();
 }
 
 class Car extends Vehicle {
     @Override
-    public void run() {
-        System.out.println("Car is running");
+    void start() {
+        System.out.println("Car is starting");
     }
-
-    public void fuel() {
-        System.out.println("Car uses fuel");
-    }
-
-    public void fuel(int amount) {
-        System.out.println("Car refueled with " + amount + " liters");
-    }
-
-    // final method
-    public final void show() {
-        System.out.println("This is a final method");
-    }
-
-    public final void show(int speed) {
-        System.out.println("Car speed is " + speed);
-    }
-
-    public static void display() {
-        System.out.println("This is a static method");
-    }
-
-    public static void display(String msg) {
-        System.out.println("Static method overloaded with: " + msg);
+    void drive() {
+        System.out.println("Car is being driven");
     }
 }
 
-public class InheritanceDemo {
+public class Runner {
     public static void main(String[] args) {
-        Car c = new Car();
-
-        c.run();
-        c.fuel();
-        c.fuel(50);
-        c.show();
-        c.show(120);
-        Car.display();
-        Car.display("Sedan");
+        Vehicle v = new Car();
+        v.start();
+        Car c = (Car) v;
+        c.drive();
     }
 }

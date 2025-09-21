@@ -1,21 +1,53 @@
-class Engine {
-	private int engineCC;
-	private String engineType;
-	private String engineName;
-      
-public Engine(int engineCC, String engineType, String engineName) {
-	this.engineCC=engineCC;
-	this.engineType=engineType;
-	this.engineName=engineName;
+package StringPrograms;
+
+interface Engine {
+    void startEngine();
+    default void fuelType() {
+        System.out.println("Fuel type: Petrol");
+    }
+    static void engineInfo() {
+        System.out.println("Engine is a mechanical system that powers vehicles");
+    }
 }
-public int getEngineCC() {
-	return engineCC;
+
+interface Vehicle {
+    void move();
+    default void vehicleType() {
+        System.out.println("Vehicle type: Four-wheeler");
+    }
+    static void vehicleInfo() {
+        System.out.println("Vehicles are used for transportation");
+    }
 }
-public String getEngineType() {
-	return engineType;
+
+class Car implements Engine, Vehicle {
+    @Override
+    public void startEngine() {
+        System.out.println("Car engine started");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Car is moving");
+    }
+
+    @Override
+    public void fuelType() {
+        System.out.println("Overridden fuel type: Diesel");
+    }
 }
-public String getEngineName() {
-	return engineName;
-}
+
+public class Runner {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+
+        myCar.startEngine();
+        myCar.move();
+        myCar.fuelType();
+        myCar.vehicleType();
+
+        Engine.engineInfo();
+        Vehicle.vehicleInfo();
+    }
 }
 
